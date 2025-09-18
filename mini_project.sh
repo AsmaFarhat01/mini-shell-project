@@ -8,7 +8,9 @@ do
 	echo "Choose an option:"
 	echo "1) Postive/negative/zero or even/odd"
 	echo "2)factorial of a number"
-	echo "3)Exit"
+	echo "3)prime or not"
+	echo "4)FizzBuzz"
+	echo "5)Exit"
 	read -p "enter your choice:" choice
 	
 	case $choice in
@@ -43,7 +45,44 @@ do
 		     done
 		     echo "Factorial of $num is $fact"
 		     ;;
+
 	      3)
+		      read -p "enter a number:" n
+		      if (( n <= 1 ));then
+			      echo "$n is not a prime number"
+		      else
+			      is_prime=1
+			      for((i=2;i*i<=n;i++));do
+				      if ((n%1 ==0));then
+				          is_prime=0
+				          break
+				       fi
+			      done
+			      if  (( is_prime == 1)); then
+				      echo "$n is a prime number"
+			       else
+				       echo "$n is not a prime number"
+			       fi
+			   fi
+			   ;;
+	       
+                4)
+			for(( i=1;i<=20;i++));do
+				if (( i % 15 == 0));then
+					echo "FizzBuzz"
+				elif (( i % 3 == 0));then
+					echo "Fizz"
+				elif (( i % 5 == 0));then
+					echo "Buzz"
+				else
+					echo "$i"
+				fi
+			done
+			;;
+
+                 5)
+
+
 		      echo "GoodBye!"
 		      break
 		      ;;
