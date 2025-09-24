@@ -10,7 +10,9 @@ do
 	echo "2)factorial of a number"
 	echo "3)prime or not"
 	echo "4)FizzBuzz"
-	echo "5)Exit"
+	echo "5)Calculator (Add, Subtract, Multiply, Division)"
+	echo "6)Exit"
+
 	read -p "enter your choice:" choice
 	
 	case $choice in
@@ -81,6 +83,37 @@ do
 			;;
 
                  5)
+			 echo "Enter first number:"
+			 read num1
+			 echo "Enter second number:"
+			 read num2
+			 echo "Choose operation : + - * /)"
+			 read op
+
+			 case $op in 
+				 +)
+					 result=$((num1 + num2))
+					 echo "Result: $result"
+					 ;;
+				-)
+					result=$((num1 - num2))
+					echo "Result: $result"
+					;;
+				*)
+					result=$((num1 * num2))
+					echo "Result: $result"
+					;;
+				/)
+					if [ $num2 -ne 0]; then
+						result=$((num1 / num2))
+						echo "Result: $result"
+					else
+						echo "Error: Division by zero not allowed."
+					fi
+					
+			esac
+			;;
+		6)
 
 
 		      echo "GoodBye!"
